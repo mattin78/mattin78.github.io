@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="风月恶之花 - 深度解析古典文学中的情欲隐喻与人性挣扎，收录经典文本与现代解读，探讨禁忌之爱、背叛与救赎的文学主题。">
+    <meta name="keywords" content="风月恶之花, 波德莱尔, 象征主义, 文学解读, 情欲隐喻, 禁忌之爱, 经典文学">
+    <title>风月恶之花 - 文学解读与隐喻解析平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --bg-color: #f9f7f2;
+            --text-primary: #2c2c2c;
+            --text-secondary: #5a5a5a;
+            --accent-red: #8a1c1c;
+            --accent-gold: #c5a059;
+            --card-bg: #ffffff;
+            --border-color: #e0dcd5;
+            --font-serif: "Songti SC", "SimSun", "Times New Roman", serif;
+            --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            --spacing-unit: 1rem;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--accent-red);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Utility */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .section-title {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            padding-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent-red);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--accent-red);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        nav a.active, nav a:hover {
+            color: var(--accent-red);
+        }
+
+        .cta-button {
+            background-color: var(--accent-red);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            transition: background 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #6e1616;
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://picsum.photos/seed/darkflower/1600/900.jpg') center/cover no-repeat;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+            animation: fadeIn 1.5s ease;
+        }
+
+        .hero h1 {
+            font-family: var(--font-serif);
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .btn-outline {
+            border: 2px solid white;
+            color: white;
+            padding: 0.6rem 1.8rem;
+            border-radius: 50px;
+            font-weight: 500;
+        }
+
+        .btn-outline:hover {
+            background-color: white;
+            color: var(--text-primary);
+        }
+
+        /* Introduction */
+        .intro {
+            padding: 5rem 0;
+        }
+
+        .intro-text {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+        }
+
+        /* Themes Section */
+        .themes {
+            padding: 5rem 0;
+            background-color: var(--card-bg);
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .theme-card {
+            background: var(--bg-color);
+            padding: 2rem;
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .theme-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border-color: var(--border-color);
+        }
+
+        .theme-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .theme-card h3 {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .theme-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Featured Analysis */
+        .featured {
+            padding: 5rem 0;
+        }
+
+        .featured-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+        }
+
+        .article-card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+        }
+
+        .article-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            filter: sepia(30%);
+        }
+
+        .article-content {
+            padding: 2rem;
+        }
+
+        .article-meta {
+            font-size: 0.85rem;
+            color: var(--accent-red);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .article-title {
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .article-excerpt {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .read-more {
+            display: inline-flex;
+            align-items: center;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .read-more::after {
+            content: "→";
+            margin-left: 8px;
+            transition: margin 0.2s;
+        }
+
+        .read-more:hover::after {
+            margin-left: 12px;
+        }
+
+        .sidebar {
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+        }
+
+        .sidebar-widget {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 2rem;
+        }
+
+        .sidebar-title {
+            font-family: var(--font-serif);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent-red);
+            display: inline-block;
+        }
+
+        .tag-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            background: var(--bg-color);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            transition: all 0.2s;
+        }
+
+        .tag:hover {
+            background: var(--accent-red);
+            color: white;
+        }
+
+        /* Quote Section */
+        .quote-section {
+            background-color: #2c2c2c;
+            color: #f0f0f0;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .quote-text {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            font-style: italic;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+
+        .quote-author {
+            color: var(--accent-gold);
+            font-size: 1rem;
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 5rem 0;
+            background-color: var(--bg-color);
+        }
+
+        .faq-item {
+            background: var(--card-bg);
+            margin-bottom: 1rem;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .faq-question:hover {
+            background-color: #fcfcfc;
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+            color: var(--text-secondary);
+            display: none;
+            border-top: 1px solid #f0f0f0;
+            padding-top: 1rem;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-icon {
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1a1a;
+            color: #888;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--accent-red);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #333;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .nav-container { flex-direction: column; height: auto; padding: 1rem 0; gap: 1rem; }
+            nav ul { gap: 1rem; font-size: 0.9rem; }
+            .featured-grid { grid-template-columns: 1fr; }
+            .sidebar { display: none; }
+            .section-title { font-size: 1.75rem; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <span>❧</span> 风月恶之花
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#themes" class="active">主题解析</a></li>
+                    <li><a href="#analysis">深度解读</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+            <a href="#analysis" class="cta-button">开始阅读</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>在罪恶与崇高之间</h1>
+                <p>探索《恶之花》中的现代性隐喻，解读波德莱尔笔下的颓废美学与人性深渊。</p>
+                <div class="hero-buttons">
+                    <a href="#analysis" class="cta-button">阅读经典</a>
+                    <a href="#themes" class="btn-outline">了解主题</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Intro Section -->
+        <section class="intro">
+            <div class="container">
+                <div class="intro-text">
+                    <p>“恶之花”并非对罪恶的颂扬，而是对人性复杂面的深刻剖析。在这个平台上，我们致力于梳理这部象征主义文学巨著的脉络，从巴黎的街头巷尾到内心的幽暗角落，为您提供最权威、最深度的文学解读。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Themes Section -->
+        <section id="themes" class="themes">
+            <div class="container">
+                <h2 class="section-title">核心主题</h2>
+                <div class="grid-3">
+                    <article class="theme-card">
+                        <span class="theme-icon">☠</span>
+                        <h3>颓废与毁灭</h3>
+                        <p>探讨作品中关于自我毁灭倾向的描写，以及这种美学如何在19世纪末的文学中成为一种反抗传统的姿态。</p>
+                    </article>
+                    <article class="theme-card">
+                        <span class="theme-icon">👁</span>
+                        <h3>都市异化</h3>
+                        <p>分析波德莱尔如何将巴黎作为主角，描绘工业文明背景下，人与城市、人与自然之间疏离的关系。</p>
+                    </article>
+                    <article class="theme-card">
+                        <span class="theme-icon">❤</span>
+                        <h3>爱与痛苦</h3>
+                        <p>解读“憎恨与爱”的辩证关系，以及作品中对病态依恋和占有欲的心理刻画。</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Analysis Section -->
+        <section id="analysis" class="featured">
+            <div class="container">
+                <h2 class="section-title">深度解读</h2>
+                <div class="featured-grid">
+                    <div class="main-content">
+                        <article class="article-card">
+                            <img src="https://picsum.photos/seed/flowers/800/400.jpg" alt="恶之花插画" class="article-img">
+                            <div class="article-content">
+                                <div class="article-meta">经典文本 · 2023年10月</div>
+                                <h3 class="article-title">忧郁与美：论《恶之花》的象征主义美学</h3>
+                                <p class="article-excerpt">
+                                    波德莱尔在《忧郁与美》中提出了一个核心命题：美往往伴随着某种痛苦。本文将深入分析《信天翁》、《信天翁》等诗作，探讨诗人如何通过扭曲与怪诞的意象，构建出一种独特的崇高感。
+                                </p>
+                                <a href="#" class="read-more">阅读全文</a>
+                            </div>
+                        </article>
+
+                        <article class="article-card">
+                            <img src="https://picsum.photos/seed/paris/800/400.jpg" alt="巴黎街头" class="article-img">
+                            <div class="article-content">
+                                <div class="article-meta">现代解读 · 2023年11月</div>
+                                <h3 class="article-title">现代性的先声：波德莱尔与都市诗歌</h3>
+                                <p class="article-excerpt">
+                                    作为现代派诗歌的鼻祖，波德莱尔对现代都市生活的描写至今仍具有极强的现实意义。从烟雾弥漫的街道到光怪陆离的咖啡馆，我们将重新审视这位“诗人中的王子”如何捕捉时代的脉搏。
+                                </p>
+                                <a href="#" class="read-more">阅读全文</a>
+                            </div>
+                        </article>
+                    </div>
+
+                    <aside class="sidebar">
+                        <div class="sidebar-widget">
+                            <h4 class="sidebar-title">关键词标签</h4>
+                            <div class="tag-cloud">
+                                <a href="#" class="tag">巴黎</a>
+                                <a href="#" class="tag">象征主义</a>
+                                <a href="#" class="tag">颓废</a>
+                                <a href="#" class="tag">感官</a>
+                                <a href="#" class="tag">恶</a>
+                                <a href="#" class="tag">美</a>
+                                <a href="#" class="tag">诗歌</a>
+                                <a href="#" class="tag">波德莱尔</a>
+                            </div>
+                        </div>
+
+                        <div class="sidebar-widget">
+                            <h4 class="sidebar-title">推荐阅读</h4>
+                            <ul style="margin-top: 1rem;">
+                                <li style="margin-bottom: 0.8rem; border-bottom: 1px solid #eee; padding-bottom: 0.5rem;">
+                                    <a href="#" style="font-size: 0.95rem; font-weight: 500;">《信天翁》：自由的代价</a>
+                                </li>
+                                <li style="margin-bottom: 0.8rem; border-bottom: 1px solid #eee; padding-bottom: 0.5rem;">
+                                    <a href="#" style="font-size: 0.95rem; font-weight: 500;">《猫》：冷漠的观察者</a>
+                                </li>
+                                <li style="margin-bottom: 0.8rem; border-bottom: 1px solid #eee; padding-bottom: 0.5rem;">
+                                    <a href="#" style="font-size: 0.95rem; font-weight: 500;">《腐尸》：尸体的诱惑</a>
+                                </li>
+                                <li>
+                                    <a href="#" style="font-size: 0.95rem; font-weight: 500;">《邀游》：梦境与现实的边界</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quote Section -->
+        <section class="quote-section">
+            <div class="container">
+                <p class="quote-text">“美是永恒的喜悦，它自身呈现，自身满足。”</p>
+                <p class="quote-author">—— 摘自《恶之花》</p>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="faq">
+            <div class="container">
+                <h2 class="section-title">常见问题</h2>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        什么是“恶之花”？
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>“恶之花”是夏尔·波德莱尔在1857年出版的诗集名称。它并非指真正的花朵，而是隐喻人性中阴暗、罪恶、颓废的一面，同时也指代诗人通过这种描写来达到一种崇高的美学境界。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        《恶之花》在当时引起了什么争议？
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>该诗集因其露骨的色情描写、对死亡的迷恋以及对道德的挑战，在当时被法国政府起诉，并被判定为“有伤风化”而受到审查，部分诗作被禁。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        如何理解书中的“忧郁”？
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>在波德莱尔看来，忧郁并非单纯的悲伤，而是一种深刻的精神状态。它源于对美的敏感、对现实的失望以及某种形而上的渴望。忧郁是诗歌创作的源泉。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="#" class="logo" style="margin-bottom: 1rem; display:inline-block;">
+                        <span>❧</span> 风月恶之花
+                    </a>
+                    <p style="font-size: 0.9rem; line-height: 1.6;">
+                        致力于文学爱好者的精神家园，提供古典与现代文学的深度解读与赏析。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>内容导航</h4>
+                    <ul>
+                        <li><a href="#themes">主题解析</a></li>
+                        <li><a href="#analysis">深度文章</a></li>
+                        <li><a href="#faq">知识库</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关于我们</h4>
+                    <ul>
+                        <li><a href="#">团队介绍</a></li>
+                        <li><a href="#">投稿指南</a></li>
+                        <li><a href="#">联系合作</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 风月恶之花文学网. All Rights Reserved. 仅供文学学习与交流使用。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Accordion Logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // Close other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
