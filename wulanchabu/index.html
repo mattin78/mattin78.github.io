@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="乌兰察布酒店预订平台，提供乌兰察布市各大星级酒店、特色民宿及商务住宿的详细查询、价格对比及用户评价。包含集宁区、卓资山、凉城等热门区域的住宿指南。">
+    <meta name="keywords" content="乌兰察布酒店, 乌兰察布住宿, 乌兰察布酒店预订, 集宁区酒店, 乌兰察布民宿, 内蒙古旅游住宿">
+    <title>乌兰察布酒店-精选住宿推荐与预订指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #f0f4f8;
+            --text-dark: #333333;
+            --text-gray: #666666;
+            --text-light: #999999;
+            --white: #ffffff;
+            --border-color: #e1e4e8;
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+            --radius-md: 8px;
+            --radius-lg: 12px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--secondary-color);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout Containers */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-dark);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .header-actions button {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+            padding: 10px 20px;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .header-actions button:hover {
+            opacity: 0.9;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #0056b3 0%, #004494 100%);
+            padding: 60px 0;
+            text-align: center;
+            color: var(--white);
+            margin-bottom: 40px;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 16px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .search-box {
+            background: var(--white);
+            padding: 20px;
+            border-radius: var(--radius-lg);
+            display: flex;
+            gap: 15px;
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: var(--shadow-md);
+            flex-wrap: wrap;
+        }
+
+        .input-group {
+            flex: 1;
+            min-width: 200px;
+            text-align: left;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 14px;
+            color: var(--text-gray);
+            margin-bottom: 6px;
+        }
+
+        .input-group input, .input-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            font-size: 16px;
+            outline: none;
+        }
+
+        .input-group input:focus, .input-group select:focus {
+            border-color: var(--primary-color);
+        }
+
+        .search-btn {
+            background-color: #ff9800;
+            color: var(--white);
+            border: none;
+            padding: 12px 30px;
+            border-radius: var(--radius-md);
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            align-self: flex-end;
+            height: 46px;
+            transition: background 0.2s;
+        }
+
+        .search-btn:hover {
+            background-color: #f57c00;
+        }
+
+        /* Filter Tabs */
+        .filters {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: var(--white);
+            border: 1px solid var(--border-color);
+            padding: 8px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            color: var(--text-gray);
+            transition: all 0.2s;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border-color: var(--primary-color);
+        }
+
+        /* Content Grid */
+        .section-title {
+            font-size: 24px;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title::before {
+            content: '';
+            display: block;
+            width: 4px;
+            height: 24px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .hotel-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .hotel-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hotel-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .card-image {
+            height: 200px;
+            background-color: #ddd;
+            position: relative;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(0,0,0,0.6);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+
+        .badge.hot {
+            background: #ff4d4f;
+        }
+
+        .card-content {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+
+        .hotel-name {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 4px;
+        }
+
+        .hotel-location {
+            font-size: 14px;
+            color: var(--text-gray);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .hotel-rating {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            color: #ff9800;
+            font-weight: 600;
+        }
+
+        .hotel-rating span {
+            color: var(--text-gray);
+            font-weight: 400;
+            font-size: 14px;
+        }
+
+        .hotel-desc {
+            font-size: 14px;
+            color: var(--text-gray);
+            margin-bottom: 20px;
+            flex: 1;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-footer {
+            border-top: 1px solid var(--border-color);
+            padding-top: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .price {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .price-label {
+            font-size: 12px;
+            color: var(--text-light);
+        }
+
+        .price-value {
+            font-size: 20px;
+            color: #ff4d4f;
+            font-weight: 700;
+        }
+
+        .price-value sub {
+            font-size: 12px;
+        }
+
+        .book-btn {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 8px 16px;
+            border-radius: var(--radius-md);
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        /* Feature Section */
+        .features {
+            background-color: var(--white);
+            padding: 60px 0;
+            margin-bottom: 60px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            text-align: center;
+        }
+
+        .feature-item svg {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 15px;
+            fill: var(--primary-color);
+        }
+
+        .feature-item h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .feature-item p {
+            font-size: 14px;
+            color: var(--text-gray);
+        }
+
+        /* Guide Section */
+        .guide-section {
+            padding: 60px 0;
+        }
+
+        .guide-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+
+        .guide-list article {
+            background: var(--white);
+            padding: 20px;
+            border-radius: var(--radius-md);
+            margin-bottom: 15px;
+            border-left: 4px solid var(--primary-color);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .guide-list h3 {
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .guide-list p {
+            font-size: 14px;
+            color: var(--text-gray);
+        }
+
+        .sidebar h3 {
+            margin-bottom: 20px;
+            font-size: 18px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        .sidebar-menu li {
+            margin-bottom: 10px;
+        }
+
+        .sidebar-menu a {
+            display: block;
+            padding: 8px 12px;
+            background: var(--white);
+            border-radius: var(--radius-md);
+            font-size: 14px;
+            color: var(--text-dark);
+            border: 1px solid var(--border-color);
+        }
+
+        .sidebar-menu a:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1a1a;
+            color: #ccc;
+            padding: 50px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--white);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 15px;
+                font-size: 14px;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .search-box {
+                flex-direction: column;
+            }
+
+            .search-btn {
+                width: 100%;
+            }
+
+            .feature-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .guide-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M7 13c1.66 0 3-1.34 3-3S8.66 7 7 7s-3 1.34-3 3 1.34 3 3 3zm12-6h-8v7H3V5H1v15h2v-3h18v3h2v-9c0-2.21-1.79-4-4-4z"/>
+                </svg>
+                <span>乌兰察布酒店</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">酒店预订</a></li>
+                    <li><a href="#">特价民宿</a></li>
+                    <li><a href="#">旅游攻略</a></li>
+                    <li><a href="#">联系客服</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button>登录 / 注册</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>探索乌兰察布，从这里开始</h1>
+                <p>为您提供乌兰察布市集宁区、卓资山、凉城等地最新、最全的住宿预订服务，无论是商务出行还是旅游度假，我们都有您满意的下榻之处。</p>
+                <form class="search-box" onsubmit="event.preventDefault(); alert('搜索功能演示：正在为您查找乌兰察布的酒店信息...');">
+                    <div class="input-group">
+                        <label for="destination">目的地</label>
+                        <input type="text" id="destination" placeholder="请输入城市或区域，如：集宁区" value="乌兰察布">
+                    </div>
+                    <div class="input-group">
+                        <label for="check-in">入住日期</label>
+                        <input type="date" id="check-in">
+                    </div>
+                    <div class="input-group">
+                        <label for="check-out">退房日期</label>
+                        <input type="date" id="check-out">
+                    </div>
+                    <button type="submit" class="search-btn">搜索酒店</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Filter Section -->
+        <div class="container">
+            <div class="filters">
+                <button class="filter-btn active">综合排序</button>
+                <button class="filter-btn">价格最低</button>
+                <button class="filter-btn">评分最高</button>
+                <button class="filter-btn">距市中心近</button>
+                <button class="filter-btn">免费取消</button>
+            </div>
+        </div>
+
+        <!-- Featured Hotels -->
+        <section class="container">
+            <h2 class="section-title">热门乌兰察布酒店推荐</h2>
+            <div class="hotel-grid">
+                <!-- Hotel 1 -->
+                <article class="hotel-card">
+                    <div class="card-image">
+                        <span class="badge hot">热门</span>
+                        <img src="https://picsum.photos/seed/hotel1/400/250" alt="乌兰察布集宁区酒店">
+                    </div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h3 class="hotel-name">乌兰察布华邑酒店</h3>
+                            <div class="hotel-rating">
+                                ★ 4.8 <span>(328条评价)</span>
+                            </div>
+                        </div>
+                        <div class="hotel-location">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                            集宁区·中心广场附近
+                        </div>
+                        <p class="hotel-desc">乌兰察布华邑酒店位于集宁区核心地段，毗邻乌兰察布市政府，交通便利。酒店拥有宽敞舒适的客房及会议设施，是商务出差与旅游观光的理想选择。</p>
+                        <div class="card-footer">
+                            <div class="price">
+                                <span class="price-label">每晚起价</span>
+                                <span class="price-value">¥328 <sub>/晚</sub></span>
+                            </div>
+                            <a href="#" class="book-btn">查看详情</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Hotel 2 -->
+                <article class="hotel-card">
+                    <div class="card-image">
+                        <span class="badge">特价</span>
+                        <img src="https://picsum.photos/seed/hotel2/400/250" alt="乌兰察布商务酒店">
+                    </div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h3 class="hotel-name">乌兰察布商务快捷酒店</h3>
+                            <div class="hotel-rating">
+                                ★ 4.5 <span>(156条评价)</span>
+                            </div>
+                        </div>
+                        <div class="hotel-location">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                            集宁区·火车站商圈
+                        </div>
+                        <p class="hotel-desc">经济实惠型酒店，提供24小时热水、免费WiFi和停车服务。房间干净整洁，适合预算有限的旅客。</p>
+                        <div class="card-footer">
+                            <div class="price">
+                                <span class="price-label">每晚起价</span>
+                                <span class="price-value">¥168 <sub>/晚</sub></span>
+                            </div>
+                            <a href="#" class="book-btn">查看详情</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Hotel 3 -->
+                <article class="hotel-card">
+                    <div class="card-image">
+                        <img src="https://picsum.photos/seed/hotel3/400/250" alt="乌兰察布温泉度假村">
+                    </div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h3 class="hotel-name">凉城·岱海温泉度假酒店</h3>
+                            <div class="hotel-rating">
+                                ★ 4.9 <span>(89条评价)</span>
+                            </div>
+                        </div>
+                        <div class="hotel-location">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                            凉城县·岱海旅游度假区
+                        </div>
+                        <p class="hotel-desc">依山傍水，拥有天然岱海温泉。酒店内设SPA、餐厅及会议室，是休闲养生、家庭出游的绝佳去处。</p>
+                        <div class="card-footer">
+                            <div class="price">
+                                <span class="price-label">每晚起价</span>
+                                <span class="price-value">¥588 <sub>/晚</sub></span>
+                            </div>
+                            <a href="#" class="book-btn">查看详情</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Hotel 4 -->
+                <article class="hotel-card">
+                    <div class="card-image">
+                        <img src="https://picsum.photos/seed/hotel4/400/250" alt="乌兰察布草原蒙古包">
+                    </div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h3 class="hotel-name">辉腾锡勒草原度假村</h3>
+                            <div class="hotel-rating">
+                                ★ 4.7 <span>(210条评价)</span>
+                            </div>
+                        </div>
+                        <div class="hotel-location">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                            察右中旗·辉腾锡勒草原
+                        </div>
+                        <p class="hotel-desc">体验独特的草原风情，住宿为特色蒙古包，可观赏壮丽的草原风光和风力发电场，夜晚可仰望璀璨星空。</p>
+                        <div class="card-footer">
+                            <div class="price">
+                                <span class="price-label">每晚起价</span>
+                                <span class="price-value">¥398 <sub>/晚</sub></span>
+                            </div>
+                            <a href="#" class="book-btn">查看详情</a>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Hotel 5 -->
+                <article class="hotel-card">
+                    <div class="card-image">
+                        <img src="https://picsum.photos/seed/hotel5/400/250" alt="乌兰察布维也纳酒店">
+                    </div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h3 class="hotel-name">乌兰察布维也纳国际酒店</h3>
+                            <div class="hotel-rating">
+                                ★ 4.6 <span>(412条评价)</span>
+                            </div>
+                        </div>
+                        <div class="hotel-location">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                            集宁区·白泉山附近
+                        </div>
+                        <p class="hotel-desc">连锁品牌，服务标准化，提供免费早餐和停车服务。客房设计温馨，适合商务接待和短期住宿。</p>
+                        <div class="card-footer">
+                            <div class="price">
+                                <span class="price-label">每晚起价</span>
+                                <span class="price-value">¥238 <sub>/晚</sub></span>
+                            </div>
+                            <a href="#" class="book-btn">查看详情</a>
+                        </div>
+                    </div>
+                </article>
+
+                 <!-- Hotel 6 -->
+                 <article class="hotel-card">
+                    <div class="card-image">
+                        <span class="badge">新开业</span>
+                        <img src="https://picsum.photos/seed/hotel6/400/250" alt="乌兰察布希尔顿酒店">
+                    </div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h3 class="hotel-name">乌兰察布希尔顿逸林酒店</h3>
+                            <div class="hotel-rating">
+                                ★ 4.9 <span>(45条评价)</span>
+                            </div>
+                        </div>
+                        <div class="hotel-location">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                            集宁区·开发区
+                        </div>
+                        <p class="hotel-desc">高端商务酒店，拥有全景落地窗和现代化健身中心。提供地道的中西式自助早餐，为您的旅途增添舒适体验。</p>
+                        <div class="card-footer">
+                            <div class="price">
+                                <span class="price-label">每晚起价</span>
+                                <span class="price-value">¥699 <sub>/晚</sub></span>
+                            </div>
+                            <a href="#" class="book-btn">查看详情</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Service Features -->
+        <section class="features">
+            <div class="container">
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+                        <h3>安全可靠</h3>
+                        <p>所有酒店资质齐全，交易安全有保障</p>
+                    </div>
+                    <div class="feature-item">
+                        <svg viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>
+                        <h3>价格透明</h3>
+                        <p>无隐形消费，比价更实惠</p>
+                    </div>
+                    <div class="feature-item">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                        <h3>24小时客服</h3>
+                        <p>全天候在线，随时解决住宿问题</p>
+                    </div>
+                    <div class="feature-item">
+                        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                        <h3>免费取消</h3>
+                        <p>多数房型支持免费取消，灵活预订</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Travel Guide Section -->
+        <section class="guide-section container">
+            <h2 class="section-title">乌兰察布旅游住宿指南</h2>
+            <div class="guide-grid">
+                <div class="guide-content">
+                    <h3>如何选择乌兰察布酒店</h3>
+                    <p style="margin-bottom: 20px; color: var(--text-gray);">乌兰察布市位于内蒙古自治区中部，旅游资源丰富，包括草原、火山、温泉等。根据您的行程规划选择合适的住宿区域非常重要。</p>
+                    
+                    <article>
+                        <h3>集宁区：市中心首选</h3>
+                        <p>如果您的主要活动是商务出差或前往火车站、汽车站，建议选择集宁区。这里交通最便利，餐饮娱乐设施最齐全，华邑酒店、希尔顿逸林等高端酒店云集。</p>
+                    </article>
+
+                    <article>
+                        <h3>辉腾锡勒草原：体验牧民生活</h3>
+                        <p>如果您计划游览黄花沟地质公园或观看草原风电，住宿建议选在辉腾锡勒草原度假村。这里的特色蒙古包能提供独特的夜晚体验，但需注意昼夜温差大。</p>
+                    </article>
+
+                    <article>
+                        <h3>凉城岱海：温泉养生</h3>
+                        <p>岱海温泉是乌兰察布的一大特色，适合周末短途放松。岱海温泉度假酒店环境优美，是家庭出游和休闲养生的理想选择。</p>
+                    </article>
+                </div>
+                <aside class="sidebar">
+                    <h3>热门区域导航</h3>
+                    <ul class="sidebar-menu">
+                        <li><a href="#">集宁区酒店</a></li>
+                        <li><a href="#">辉腾锡勒草原酒店</a></li>
+                        <li><a href="#">凉城岱海酒店</a></li>
+                        <li><a href="#">察右中旗火山酒店</a></li>
+                        <li><a href="#">卓资山酒店</a></li>
+                        <li><a href="#">四子王旗酒店</a></li>
+                    </ul>
+                </aside>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>关于我们</h4>
+                    <p style="font-size: 14px; line-height: 1.8;">乌兰察布酒店网致力于为游客提供最便捷的本地酒店预订服务，连接草原风光与现代舒适住宿。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>预订指南</h4>
+                    <ul>
+                        <li><a href="#">预订流程</a></li>
+                        <li><a href="#">退改政策</a></li>
+                        <li><a href="#">常见问题</a></li>
+                        <li><a href="#">酒店入驻</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>服务支持</h4>
+                    <ul>
+                        <li><a href="#">客服中心</a></li>
+                        <li><a href="#">投诉建议</a></li>
+                        <li><a href="#">合作加盟</a></li>
+                        <li><a href="#">隐私条款</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系方式</h4>
+                    <ul>
+                        <li>电话：400-888-8888</li>
+                        <li>邮箱：contact@wlcbhotel.com</li>
+                        <li>地址：内蒙古自治区乌兰察布市集宁区</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 乌兰察布酒店网 版权所有</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+              </html>
