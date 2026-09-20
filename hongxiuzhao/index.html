@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="红袖招-古风言情文学门户。提供海量原创古风言情小说、穿越时空、宫廷权谋、江湖侠义等题材的精彩章节阅读与连载更新。">
+    <meta name="keywords" content="红袖招,古风言情,在线阅读,小说连载,红袖添香">
+    <title>红袖招-古风言情小说阅读与原创文学社区</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #8e2c2c;
+            --primary-light: #b84545;
+            --secondary-color: #f5f2eb;
+            --text-dark: #333333;
+            --text-gray: #666666;
+            --text-light: #999999;
+            --white: #ffffff;
+            --border-color: #e0e0e0;
+            --shadow: 0 4px 12px rgba(0,0,0,0.08);
+            --font-serif: "Songti SC", "SimSun", "Noto Serif SC", serif;
+            --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--secondary-color);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: var(--primary-color);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 1200px;
+            max-width: 95%;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            border-bottom: 2px solid var(--primary-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 28px;
+            font-weight: bold;
+            color: var(--primary-color);
+            letter-spacing: 2px;
+        }
+
+        .search-box {
+            display: flex;
+            width: 400px;
+        }
+
+        .search-box input {
+            flex: 1;
+            padding: 8px 12px;
+            border: 1px solid var(--border-color);
+            border-right: none;
+            outline: none;
+            font-size: 14px;
+        }
+
+        .search-box button {
+            padding: 8px 20px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .user-actions {
+            display: flex;
+            gap: 15px;
+            font-size: 14px;
+            color: var(--text-gray);
+        }
+
+        .user-actions a {
+            color: var(--text-dark);
+        }
+
+        .user-actions a.highlight {
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        nav {
+            padding: 12px 0;
+        }
+
+        .nav-list {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-item {
+            font-size: 16px;
+            font-weight: 500;
+            position: relative;
+        }
+
+        .nav-item::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: width 0.3s;
+        }
+
+        .nav-item:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://picsum.photos/seed/ancient/1200/400') no-repeat center center/cover;
+            height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            margin-bottom: 30px;
+            border-radius: 8px;
+        }
+
+        .hero h1 {
+            font-family: var(--font-serif);
+            font-size: 48px;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+
+        /* Main Layout */
+        .main-content {
+            display: grid;
+            grid-template-columns: 240px 1fr 300px;
+            gap: 20px;
+            padding-bottom: 40px;
+        }
+
+        /* Sidebar Left */
+        .sidebar-left {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .sidebar-title {
+            font-size: 18px;
+            font-weight: bold;
+            border-left: 4px solid var(--primary-color);
+            padding-left: 10px;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+
+        .category-list li {
+            padding: 10px 0;
+            border-bottom: 1px dashed var(--border-color);
+            font-size: 14px;
+            color: var(--text-gray);
+        }
+
+        .category-list li:last-child {
+            border-bottom: none;
+        }
+
+        .category-list li:hover {
+            color: var(--primary-color);
+            padding-left: 5px;
+            transition: padding 0.2s;
+        }
+
+        /* Content Area */
+        .content-area {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: var(--shadow);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .section-header h2 {
+            font-size: 20px;
+            font-weight: bold;
+            color: var(--text-dark);
+        }
+
+        .section-header a.more {
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        .book-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .book-card {
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .book-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .book-cover {
+            width: 100%;
+            height: 280px;
+            background-color: #f0f0f0;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 10px;
+            position: relative;
+        }
+
+        .book-cover img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .book-tag {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: var(--primary-color);
+            padding: 2px 8px;
+            font-size: 12px;
+            border-radius: 2px;
+            font-weight: bold;
+        }
+
+        .book-info h3 {
+            font-size: 15px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .book-info p {
+            font-size: 12px;
+            color: var(--text-gray);
+            margin-bottom: 8px;
+        }
+
+        .book-stats {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: var(--text-light);
+        }
+
+        .book-stats span i {
+            margin-right: 3px;
+        }
+
+        /* Right Sidebar */
+        .sidebar-right {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .rank-list {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .rank-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #f5f5f5;
+        }
+
+        .rank-num {
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--text-light);
+            width: 25px;
+            font-style: italic;
+        }
+
+        .rank-item:nth-child(-n+3) .rank-num {
+            color: var(--primary-color);
+        }
+
+        .rank-info {
+            flex: 1;
+            margin-left: 10px;
+        }
+
+        .rank-title {
+            font-size: 14px;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .rank-meta {
+            font-size: 12px;
+            color: var(--text-light);
+        }
+
+        .ad-box {
+            width: 100%;
+            height: 250px;
+            background-color: #e8e4dc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-gray);
+            font-size: 14px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .ad-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2b2b2b;
+            color: #ccc;
+            padding: 40px 0 20px;
+            margin-top: 40px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            font-size: 13px;
+            color: #888;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .main-content {
+                grid-template-columns: 200px 1fr;
+            }
+            .sidebar-right {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-top {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .search-box {
+                width: 100%;
+            }
+            .nav-list {
+                overflow-x: auto;
+                padding-bottom: 5px;
+            }
+            .book-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container header-top">
+        <div class="logo">红袖招</div>
+        <div class="search-box">
+            <input type="text" placeholder="搜索书名、作者、关键词...">
+            <button>搜索</button>
+        </div>
+        <div class="user-actions">
+            <a href="#">登录</a>
+            <a href="#">注册</a>
+            <a href="#">书架</a>
+            <a href="#" class="highlight">投稿</a>
+        </div>
+    </div>
+    <div class="container">
+        <nav>
+            <ul class="nav-list">
+                <li><a href="#" class="nav-item">首页</a></li>
+                <li><a href="#" class="nav-item">古风言情</a></li>
+                <li><a href="#" class="nav-item">都市职场</a></li>
+                <li><a href="#" class="nav-item">穿越时空</a></li>
+                <li><a href="#" class="nav-item">豪门恩怨</a></li>
+                <li><a href="#" class="nav-item">悬疑推理</a></li>
+                <li><a href="#" class="nav-item">仙侠玄幻</a></li>
+                <li><a href="#" class="nav-item">青春校园</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main class="container">
+    <section class="hero">
+        <div>
+            <h1>红袖招</h1>
+            <p>品味古风雅韵，邂逅最美情缘</p>
+        </div>
+    </section>
+
+    <div class="main-content">
+        <!-- Left Sidebar -->
+        <aside class="sidebar-left">
+            <h3 class="sidebar-title">热门分类</h3>
+            <ul class="category-list">
+                <li><a href="#">宫斗宅斗</a></li>
+                <li><a href="#">穿越重生</a></li>
+                <li><a href="#">江湖武侠</a></li>
+                <li><a href="#">仙侠修真</a></li>
+                <li><a href="#">历史架空</a></li>
+                <li><a href="#">民国旧影</a></li>
+                <li><a href="#">纯爱言情</a></li>
+                <li><a href="#">虐恋情深</a></li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <section class="content-area">
+            <div class="section-header">
+                <h2>今日推荐</h2>
+                <a href="#" class="more">查看更多 &gt;</a>
+            </div>
+            <div class="book-grid">
+                <!-- Book 1 -->
+                <article class="book-card">
+                    <div class="book-cover">
+                        <img src="https://picsum.photos/seed/book1/200/280" alt="书封">
+                        <span class="book-tag">热门</span>
+                    </div>
+                    <div class="book-info">
+                        <h3>凤栖梧桐</h3>
+                        <p>作者：墨染青衣</p>
+                        <div class="book-stats">
+                            <span><i>♥</i> 1.2万</span>
+                            <span><i>👁</i> 5.8万</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Book 2 -->
+                <article class="book-card">
+                    <div class="book-cover">
+                        <img src="https://picsum.photos/seed/book2/200/280" alt="书封">
+                        <span class="book-tag">完结</span>
+                    </div>
+                    <div class="book-info">
+                        <h3>君心似我</h3>
+                        <p>作者：南宫若水</p>
+                        <div class="book-stats">
+                            <span><i>♥</i> 8900</span>
+                            <span><i>👁</i> 3.2万</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Book 3 -->
+                <article class="book-card">
+                    <div class="book-cover">
+                        <img src="https://picsum.photos/seed/book3/200/280" alt="书封">
+                        <span class="book-tag">连载</span>
+                    </div>
+                    <div class="book-info">
+                        <h3>云深不知处</h3>
+                        <p>作者：云中客</p>
+                        <div class="book-stats">
+                            <span><i>♥</i> 2.1万</span>
+                            <span><i>👁</i> 8.5万</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Book 4 -->
+                <article class="book-card">
+                    <div class="book-cover">
+                        <img src="https://picsum.photos/seed/book4/200/280" alt="书封">
+                    </div>
+                    <div class="book-info">
+                        <h3>长安旧梦</h3>
+                        <p>作者：顾长歌</p>
+                        <div class="book-stats">
+                            <span><i>♥</i> 6500</span>
+                            <span><i>👁</i> 2.1万</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <div class="section-header" style="margin-top: 40px;">
+                <h2>最新更新</h2>
+                <a href="#" class="more">查看更多 &gt;</a>
+            </div>
+            
+            <div class="book-list">
+                <ul style="display: flex; flex-direction: column; gap: 15px;">
+                    <li style="display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #f9f9f9;">
+                        <div>
+                            <a href="#" style="font-weight: bold; font-size: 15px; margin-right: 10px;">盛世红妆</a>
+                            <a href="#" style="color: var(--text-light); font-size: 13px;">第三章：初入宫门</a>
+                        </div>
+                        <span style="color: var(--text-light); font-size: 12px;">2小时前</span>
+                    </li>
+                    <li style="display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #f9f9f9;">
+                        <div>
+                            <a href="#" style="font-weight: bold; font-size: 15px; margin-right: 10px;">情深不寿</a>
+                            <a href="#" style="color: var(--text-light); font-size: 13px;">第二十五章：误会</a>
+                        </div>
+                        <span style="color: var(--text-light); font-size: 12px;">5小时前</span>
+                    </li>
+                    <li style="display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #f9f9f9;">
+                        <div>
+                            <a href="#" style="font-weight: bold; font-size: 15px; margin-right: 10px;">公子无赖</a>
+                            <a href="#" style="color: var(--text-light); font-size: 13px;">第八章：偶遇</a>
+                        </div>
+                        <span style="color: var(--text-light); font-size: 12px;">8小时前</span>
+                    </li>
+                    <li style="display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #f9f9f9;">
+                        <div>
+                            <a href="#" style="font-weight: bold; font-size: 15px; margin-right: 10px;">琉璃碎</a>
+                            <a href="#" style="color: var(--text-light); font-size: 13px;">第十二章：决裂</a>
+                        </div>
+                        <span style="color: var(--text-light); font-size: 12px;">12小时前</span>
+                    </li>
+                    <li style="display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #f9f9f9;">
+                        <div>
+                            <a href="#" style="font-weight: bold; font-size: 15px; margin-right: 10px;">江山为聘</a>
+                            <a href="#" style="color: var(--text-light); font-size: 13px;">第六章：定计</a>
+                        </div>
+                        <span style="color: var(--text-light); font-size: 12px;">昨天</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Right Sidebar -->
+        <aside class="sidebar-right">
+            <div class="rank-list">
+                <h3 class="sidebar-title">月票榜</h3>
+                <div class="rank-item">
+                    <span class="rank-num">1</span>
+                    <div class="rank-info">
+                        <a href="#" class="rank-title">凤栖梧桐</a>
+                        <span class="rank-meta">墨染青衣</span>
+                    </div>
+                </div>
+                <div class="rank-item">
+                    <span class="rank-num">2</span>
+                    <div class="rank-info">
+                        <a href="#" class="rank-title">君心似我</a>
+                        <span class="rank-meta">南宫若水</span>
+                    </div>
+                </div>
+                <div class="rank-item">
+                    <span class="rank-num">3</span>
+                    <div class="rank-info">
+                        <a href="#" class="rank-title">云深不知处</a>
+                        <span class="rank-meta">云中客</span>
+                    </div>
+                </div>
+                <div class="rank-item">
+                    <span class="rank-num">4</span>
+                    <div class="rank-info">
+                        <a href="#" class="rank-title">盛世红妆</a>
+                        <span class="rank-meta">苏锦瑟</span>
+                    </div>
+                </div>
+                <div class="rank-item">
+                    <span class="rank-num">5</span>
+                    <div class="rank-info">
+                        <a href="#" class="rank-title">江山为聘</a>
+                        <span class="rank-meta">长风万里</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ad-box">
+                <img src="https://picsum.photos/seed/ad/300/250" alt="广告位">
+            </div>
+        </aside>
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>关于红袖招</h4>
+                <ul>
+                    <li><a href="#">网站简介</a></li>
+                    <li><a href="#">服务条款</a></li>
+                    <li><a href="#">隐私政策</a></li>
+                    <li><a href="#">版权声明</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>读者服务</h4>
+                <ul>
+                    <li><a href="#">帮助中心</a></li>
+                    <li><a href="#">意见反馈</a></li>
+                    <li><a href="#">作家专区</a></li>
+                    <li><a href="#">投稿指南</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>热门分类</h4>
+                <ul>
+                    <li><a href="#">古风言情</a></li>
+                    <li><a href="#">现代都市</a></li>
+                    <li><a href="#">奇幻仙侠</a></li>
+                    <li><a href="#">悬疑推理</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>联系方式</h4>
+                <ul>
+                    <li>客服邮箱：support@hongxiuzhao.com</li>
+                    <li>商务合作：bd@hongxiuzhao.com</li>
+                    <li>总部地址：北京市朝阳区文学大道88号</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 红袖招文学网 版权所有 | 仅供演示使用</p>
+        </div>
+    </div>
+</footer>
+
+</body>
+                              </html>
